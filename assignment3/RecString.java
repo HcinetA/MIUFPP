@@ -1,33 +1,28 @@
-public class RecString
+package a3Prob2;
 
-{
-    public char FindMinChar(String str) {
+public class RecString {
 
-        if (str.isEmpty()) {
-            System.out.println("Empty String " );
+    public char findMinChar(String str, int index, char minChar) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("Input string must not be null or empty.");
         }
 
-        else if (str.length() == 1)  {
-
-            return  str.charAt(0);
-        }
-
-        char firstChar = str.charAt(0);
-        String restOfString = str.substring(1);
-        char minChar = FindMinChar(restOfString);
-
-        if (firstChar < minChar) {
-            return firstChar ;
-        }
-        else
+        if (index == str.length()) {
             return minChar;
+        }
 
+        if (str.charAt(index) < minChar) {
+            minChar = str.charAt(index);
+        }
 
+        return findMinChar(str, index + 1, minChar);
     }
 
     public static void main(String[] args) {
-        RecString rs = new RecString();
-        char result = rs.FindMinChar("zidmin");
-        System.out.println("the minimum char: " + result);
+        RecString minChar = new RecString();
+        String input = "akel";
+
+        char result = minChar.findMinChar(input, 0, input.charAt(0));
+        System.out.println("The minimum character in \"" + input + "\" is: " + result);
     }
 }
