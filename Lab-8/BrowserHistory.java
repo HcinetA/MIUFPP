@@ -34,9 +34,9 @@ public class BrowserHistory {
         if ( forwardStack.isEmpty()){
             System.out.println("there is no urls in forward");
         }
-else{
-    backStack.push(curentUrl);
-            curentUrl=forwardStack.peek();
+            else{
+            backStack.push(curentUrl);
+            curentUrl=forwardStack.pop();
             System.out.println("Forward to: " + " " + curentUrl);}
 
     }
@@ -44,12 +44,10 @@ else{
         BrowserHistory browser = new
                 BrowserHistory("home.html");// Start with home.html
         browser.Visit("page1.html"); // Current URL Page page1.html
-        browser.Visit("page2.html"); // Current URL Pag page2.html
+        browser.Visit("page2.html"); // Current URL Page page2.html
         browser.Back(); // Back to: page1.html
         browser.Back(); // Back to: home.html
-
-        browser.Back(); // Back to: home.html
-
+        browser.Back(); // Forward to: page1.html
         browser.forward(); // Forward to: page2.html
         browser.forward(); // Forward to: page2.html
         browser.forward();//No forward history.
