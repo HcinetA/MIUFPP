@@ -85,7 +85,7 @@ public class Library {
             if (book.isBorrwed()) {
                 System.out.println(book);
             }
-            else if (!book.isBorrwed()) {
+            else (!book.isBorrwed()) {
                 System.out.println("No books are currently borrowed.");
             }
         }
